@@ -17,15 +17,16 @@ const imprimirCursos = (cursos) => {
 const crearArchivoDelCurso = (curso, nombreInteresado, cedula) => {
     texto = `Se ha registrado con exito al interesado ${nombreInteresado} identificado con el número de cédula ${cedula} en el curso ${curso.nombre}`;
     fs.writeFile('inscripcion.txt', texto, (error) => {
-        console.log(error);
+        console.log('error',error);
     });    
+    console.log("Interesado inscrito satisfactoriamente, por favor revisar el archivo \"inscripcion.txt\"");
 }
 
 
 const validarArgumentos = (yargs, cursos) => {
     if (yargs._[0] === 'cursos') {
         imprimirCursos(cursos);
-    } else if(yargs._[0] === 'matricula') {
+    } else if(yargs._[0] === 'inscribir') {
         const curso = obtenerCursoPorId(yargs.idCurso);
         if (curso) {
             crearArchivoDelCurso(curso, yargs.nombreInteresado, yargs.cedula);

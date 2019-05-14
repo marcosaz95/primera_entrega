@@ -13,6 +13,6 @@ const opciones = {
     }
 }
 
-const yargs = require('yargs').command('cursos', 'Mostrar los cursos').command('matricula', 'Matricular interesado a un curso', opciones).argv;
+const yargs = require('yargs').command('cursos', 'Mostrar los cursos').command('inscribir', 'Matricular interesado a un curso', opciones).argv;
 
 module.exports = { yargs };
